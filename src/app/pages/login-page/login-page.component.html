@@ -1,0 +1,23 @@
+<main class="login-page">
+  <form (ngSubmit)="login()" class="box-login">
+    <h3>Login</h3>
+    <div>
+      <app-input-text type="username" label="Username" (valueOnChange)="username = $event"/>
+      @if (isEmpty && !username) {
+        <span class="isEmpty">É necessário preencher o campo <strong>Username</strong></span>
+      }
+    </div>
+    <div>
+      <app-input-text type="password" label="Password" (valueOnChange)="password = $event"/>
+      @if (isEmpty && !password) {
+        <span class="isEmpty">É necessário preencher o campo <strong>Password</strong></span>
+      }
+    </div>
+    <div class="sub-btns">
+      <app-input-checkbox (checkedOnChange)="rememberMe = $event">Lembrar acesso</app-input-checkbox>
+      <app-text-button content="Esqueceu a senha?"/>
+    </div>
+    <app-input-button>Login</app-input-button>
+    <app-text-button style="text-align: center;" content="Não possui uma conta? Clique para cadastrar" />
+  </form>
+</main>

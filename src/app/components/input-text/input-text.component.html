@@ -1,0 +1,23 @@
+<div class="input-text">
+  <input
+    id="input{{componentId}}"
+    [type]="type" [placeholder]="label"
+    [(ngModel)]="value" (ngModelChange)="valueOnChange.emit($event)"
+  >
+  <label for="input{{componentId}}" class="label-ico">
+    @switch (type) {
+      @case ('email') {
+        <mat-icon aria-hidden="false" class="ico" fontIcon="mail"></mat-icon>
+      }
+      @case ('password') {
+        <mat-icon aria-hidden="false" class="ico" fontIcon="lock"></mat-icon>
+      }
+      @case ('username') {
+        <mat-icon aria-hidden="false" class="ico" fontIcon="person"></mat-icon>
+      }
+      @default {
+        <mat-icon aria-hidden="false" class="ico" fontIcon="text_fields"></mat-icon>
+      }
+    }
+  </label>
+</div>
