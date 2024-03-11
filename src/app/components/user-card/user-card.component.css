@@ -1,0 +1,107 @@
+article  {
+  width: 100%;
+  background-color: #fff;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 22px;
+}
+
+.user-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+  width: 70px;
+  height: 70px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.user-common span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+}
+
+h3, h4, p {
+  margin: 0;
+}
+
+.enabled-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgb(168, 168, 168);
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.enabled-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.status {
+  color: red;
+  font-weight: bold;
+}
+
+.status.ativado {
+  color: green;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-del {
+  background-color: red;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.check {
+  font-size: 2rem;
+  color: green;
+  width: 30px;
+  height: 30px;
+}
+
+#user-status {
+  background-color: none;
+  padding: 2px 8px;
+  border-radius: 15px;
+}

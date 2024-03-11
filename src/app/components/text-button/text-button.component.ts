@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-text-button',
@@ -8,6 +8,12 @@ import { Component, Input } from '@angular/core';
   styleUrl: './text-button.component.css'
 })
 export class TextButtonComponent {
-  @Input({required: true})
-  content: string = '';
+  @Output() onClick = new EventEmitter<void>();
+
+  // Método chamado quando o botão é clicado
+  emitEvent(): void {
+    // Emite o evento 'clicked' para notificar o componente pai
+    console.log("Button clicked!")
+    this.onClick.emit();
+  }
 }

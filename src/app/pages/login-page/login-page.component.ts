@@ -4,6 +4,7 @@ import { InputButtonComponent } from '../../components/input-button/input-button
 import { InputCheckboxComponent } from '../../components/input-checkbox/input-checkbox.component';
 import { InputTextComponent } from '../../components/input-text/input-text.component';
 import { TextButtonComponent } from '../../components/text-button/text-button.component';
+import { LoginService } from '../../services/login-service/login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -23,6 +24,9 @@ export class LoginPageComponent {
   password: string = '';
   rememberMe: boolean = false;
   isEmpty: boolean = false;
+  errorMessage: string = '';
+
+  constructor(private loginService: LoginService) { }
 
   login() {
     console.log('Username:', this.username);
@@ -33,8 +37,18 @@ export class LoginPageComponent {
       this.isEmpty = true;
       return;
     }
-
-    console.log('preenchido')
     this.isEmpty = false;
+    this.loginService.login(this.username, this.password)
+      .subscribe(
+        {
+          complete: () => console.log('Login complete'),
+          error: (error) => {
+            console.error('Login error:', error);
+            this.errorMessage = error;
+          },
+          next: (data) => localStorage.setItem('token', data.token)
+        }
+      );
   }
+
 }

@@ -15,9 +15,12 @@
     </div>
     <div class="sub-btns">
       <app-input-checkbox (checkedOnChange)="rememberMe = $event">Lembrar acesso</app-input-checkbox>
-      <app-text-button content="Esqueceu a senha?"/>
+      <app-text-button>Esqueceu a senha?</app-text-button>
     </div>
     <app-input-button>Login</app-input-button>
-    <app-text-button style="text-align: center;" content="Não possui uma conta? Clique para cadastrar" />
+    <app-text-button style="text-align: center;">Não possui uma conta? Clique para cadastrar</app-text-button>
+    @if (errorMessage) {
+        <span class="error-message">{{ errorMessage }}</span>
+    }
   </form>
 </main>

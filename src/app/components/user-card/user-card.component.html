@@ -1,0 +1,46 @@
+<article>
+  <header class="user-type">
+    <div class="user-box">
+      <mat-icon fontIcon="person" class="user-ico"/>
+      <span>admin</span>
+    </div>
+    <div class="user-data">
+      <p>ID {{ user.id }}</p>
+      <h3>{{ user.username }}</h3>
+    </div>
+  </header>
+
+  <div class="buttons">
+    @if (edit) {
+      <div class="enabled-box">
+
+        <button class="btn-del" (click)="deleteUser()">DELETE</button>
+
+        <div class="enabled-content">
+          <span>status</span>
+          <select name="user-status" id="user-status" [(ngModel)]="userStatus">
+            <option value="1">ATIVO</option>
+            <option value="0">INATIVO</option>
+          </select>
+        </div>
+
+        <app-text-button (onClick)="saveEdit()">
+          <mat-icon fontIcon="check" class="check"/>
+        </app-text-button>
+      </div>
+    } @else {
+      <div class="enabled-content">
+        <span>status</span>
+        <h4 [ngClass]="{'status': true, 'ativado': user.enabled}">
+          @if (user.enabled) {ATIVO} @else {INATIVO}
+        </h4>
+      </div>
+
+      <app-text-button (onClick)="editUser()">
+        <mat-icon fontIcon="edit" class="edit"/>
+      </app-text-button>
+    }
+  </div>
+
+</article>
+
